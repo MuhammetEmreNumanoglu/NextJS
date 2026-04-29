@@ -17,13 +17,49 @@ const MenuWrapper = () => {
         </div>
       </div>
       <div className="mt-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-        <MenuItem img={"/images/hamburger.jpg"} />
-        <MenuItem img={"/images/hamburger2.jpg"} />
-        <MenuItem img={"/images/hamburger3.jpg"} />
-        <MenuItem img={"/images/pizza.jpg"} />
-        <MenuItem img={"/images/pizza2.jpg"} />
-        <MenuItem img={"/images/pizza3.jpg"} />
-        <MenuItem img={"/images/pizza4.jpg"} />
+        <MenuItem
+          img="/images/hamburger.jpg"
+          title="Delicious Pizza"
+          desc="Very delicious hamburger from Spain."
+          price={9}
+        />{" "}
+        <MenuItem
+          img="/images/hamburger2.jpg"
+          title="Delicious Pizza"
+          desc="Very delicious hamburger from Spain."
+          price={10}
+        />{" "}
+        <MenuItem
+          img="/images/hamburger3.jpg"
+          title="Delicious Pizza"
+          desc="Very delicious hamburger from Spain."
+          price={8}
+        />{" "}
+   
+        <MenuItem
+          img="/images/pizza.jpg"
+          title="Delicious Pizza"
+          desc="Very delicious pizza from Italy."
+          price={10}
+        />{" "}
+        <MenuItem
+          img="/images/pizza2.jpg"
+          title="Delicious Pizza"
+          desc="Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit"
+          price={13}
+        />{" "}
+        <MenuItem
+          img="/images/pizza3.jpg"
+          title="Delicious Pizza"
+          desc="Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit"
+          price={12}
+        />{" "}
+        <MenuItem
+          img="/images/pizza4.jpg"
+          title="Delicious Pizza"
+          desc="Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit"
+          price={16}
+        />
       </div>
     </div>
   );
