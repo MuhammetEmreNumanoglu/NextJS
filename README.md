@@ -1,21 +1,49 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-## Getting Started
+# Food Ordering App
 
-First, run the development server:
+This project is a modern food ordering application built with Next.js. Users can view the menu, check out campaigns, and make reservations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- Server-side rendering (SSR) with Next.js
+- Modern and responsive design with Tailwind CSS
+- Menu and product listing
+- Campaign and promotion sections
+- Reservation form
+- Component-based architecture
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Folder Structure
+- `components/`: Application components (forms, layout, products, UI)
+- `pages/`: Page components and API routes
+- `public/`: Static files (images, etc.)
+- `styles/`: Global and custom CSS files
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MuhammetEmreNumanoglu/NextJS.git
+   cd food-ordering
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. View the app in your browser: [http://localhost:3000](http://localhost:3000)
+
+## Technologies Used
+- Next.js
+- React
+- Tailwind CSS
+- ESLint
+
+## Contribution
+To contribute, please fork the repository and submit a pull request.
+
+## License
+This project is licensed under the MIT License.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
@@ -41,5 +69,3 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
 =======
 # NextJS
-NextJS Learning
->>>>>>> 755a26deafe26b8ffc8fb4897fe042875e1d336b
