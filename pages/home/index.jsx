@@ -2,6 +2,7 @@ import About from "@/components/About";
 import Campaign from "@/components/Campaign";
 import Carousel from "@/components/Carousel";
 import MenuWrapper from "@/components/product/MenuWrapper";
+import Reservation from "@/components/Reservation";
 import React from "react";
 
 const Index = () => {
@@ -11,6 +12,7 @@ const Index = () => {
       <Campaign></Campaign>
       <MenuWrapper></MenuWrapper>
       <About></About>
+      <Reservation></Reservation>
     </div>
   );
 };
