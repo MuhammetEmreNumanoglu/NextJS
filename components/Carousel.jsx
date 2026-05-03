@@ -37,25 +37,25 @@ const Carousel = () => {
       </div>
       <Slider {...settings}>
         <div>
-          <div className="mt-48  text-white flex flex-col items-start gap-y-10">
-            <Title addClass="text-6xl">Fast Food Restaurant</Title>
+          <div className="relative text-white top-48 flex flex-col items-start gap-y-10">
+            <Title addClass="text-6xl">Real Burger Experience</Title>
             <p className="text-sm sm:w-2/5 w-full">
-              Doloremque, itaque aperiam facilis rerum, commodi, temporibus
-              sapiente ad mollitia laborum quam quisquam esse error unde.
-              Tempora ex doloremque, labore, sunt repellat dolore, iste magni
-              quos nihil ducimus libero ipsam.
+              Prepared by skilled chefs, our burgers go beyond the ordinary with
+              unique recipes and rich flavors. Every detail, from the bun to the
+              toppings, is carefully chosen to give you a satisfying and
+              memorable restaurant experience.
             </p>
             <button className="btn-primary">Order Now</button>
           </div>
         </div>
         <div>
-          <div className="relative text-white top-48 flex flex-col items-start gap-y-10">
-            <Title addClass="text-6xl">Fast Food Restaurant</Title>
+          <div className="mt-48  text-white flex flex-col items-start gap-y-10">
+            <Title addClass="text-6xl">Taste Beyond Limits</Title>
             <p className="text-sm sm:w-2/5 w-full">
-              Doloremque, itaque aperiam facilis rerum, commodi, temporibus
-              sapiente ad mollitia laborum quam quisquam esse error unde.
-              Tempora ex doloremque, labore, sunt repellat dolore, iste magni
-              quos nihil ducimus libero ipsam.
+              Our burgers are crafted with fresh ingredients and premium-quality
+              meat, delivering bold flavors in every bite. Paired with our
+              signature sauces and fast, friendly service, we create a dining
+              experience that keeps you coming back for more.
             </p>
             <button className="btn-primary">Order Now</button>
           </div>

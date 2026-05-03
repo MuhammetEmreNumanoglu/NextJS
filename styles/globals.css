@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   max-width: 100vw;
-  font-family: "Open Sans","sans-serif";
+  font-family: "Open Sans", "sans-serif";
 }
 
 * {
@@ -15,15 +19,15 @@ body {
 }
 
 .btn-primary {
-  @apply text-white px-[30px] py-[8px] rounded-3xl bg-primary cursor-pointer hover:opacity-60 transition-all
+  @apply text-white px-[30px] py-[8px] rounded-3xl bg-primary cursor-pointer hover:opacity-60 transition-all;
 }
 
-.slick-dots{
+.slick-dots {
   @apply !flex justify-start w-full;
 }
-.slick-dots .slick-active div{
+.slick-dots .slick-active div {
   @apply bg-primary;
 }
 .slick-dots div {
-  @apply !m-0
+  @apply !m-0;
 }
