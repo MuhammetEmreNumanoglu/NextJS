@@ -51,7 +51,7 @@ const Header = () => {
           )}
         </nav>
         <div className="flex gap-x-4 items-center">
-          <a href="#">
+          <a href="/auth/login">
             <FaUserAlt className="hover:text-primary transition-all" />
           </a>
           <a href="#">

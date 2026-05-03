@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../ui/Title";
+import Link from "next/link";
 import {
   FaInstagram,
   FaLinkedin,
@@ -54,7 +55,7 @@ const Footer = () => {
                 <FaTwitter />
               </a>
               <a
-                href=""
+                href="https://www.linkedin.com/in/muhammet-emre-numanoğlu-6017b3220/"
                 className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full"
               >
                 <FaLinkedin />
