@@ -16,7 +16,6 @@ export default function Index() {
           crossOrigin="true"
         />
       </Head>
-      <Header />
       <Home />
 
     </div>

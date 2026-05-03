@@ -28,7 +28,7 @@ const Header = () => {
         >
           <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
             <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
-              <a href="">Home</a>
+              <a href="http://localhost:3000">Home</a>
             </li>
             <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
               <a href="">Menu</a>
