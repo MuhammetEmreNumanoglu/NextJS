@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../ui/Title";
+import Link from "next/link";
 import {
   FaInstagram,
   FaLinkedin,

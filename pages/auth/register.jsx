@@ -2,9 +2,9 @@ import { useFormik } from "formik";
 import Link from "next/link";
 import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
-import { loginSchema } from "../../schema/login";
+import { registerSchema } from "../../schema/register";
 
-const Login = () => {
+const Register = () => {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
@@ -12,16 +12,27 @@ const Login = () => {
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
       initialValues: {
+        fullName: "",
         email: "",
         password: "",
+        confirmPassword: "",
       },
       onSubmit,
-      validationSchema: loginSchema,
+      validationSchema: registerSchema,
     });
 
   const inputs = [
     {
       id: 1,
+      name: "fullName",
+      type: "text",
+      placeholder: "Your Full Name",
+      value: values.fullName,
+      errorMessage: errors.fullName,
+      touched: touched.fullName,
+    },
+    {
+      id: 2,
       name: "email",
       type: "email",
       placeholder: "Your Email Address",
@@ -30,7 +41,7 @@ const Login = () => {
       touched: touched.email,
     },
     {
-      id: 2,
+      id: 3,
       name: "password",
       type: "password",
       placeholder: "Your Password",
@@ -38,23 +49,25 @@ const Login = () => {
       errorMessage: errors.password,
       touched: touched.password,
     },
+    {
+      id: 4,
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "Your Password Again",
+      value: values.confirmPassword,
+      errorMessage: errors.confirmPassword,
+      touched: touched.confirmPassword,
+    },
   ];
 
   return (
-<<<<<<< HEAD
-    <div className="container mx-auto  ">
-      <div className="flex flex-col items-center my-20 w-1/2 mx-auto ">
-        <Title className="mb-4">Login</Title>
-        <div className="flex flex-col gap-y-3 w-full">
-=======
     <div className="container mx-auto">
       <form
         className="flex flex-col items-center my-20 md:w-1/2 w-full mx-auto"
         onSubmit={handleSubmit}
       >
-        <Title addClass="text-[40px] mb-6">Login</Title>
-        <div className="flex flex-col gap-y-2 w-full">
->>>>>>> 0ff70e59a01c050b325d8fda09f9cf17875c2d5b
+        <Title addClass="text-[40px] mb-6">Register</Title>
+        <div className="flex flex-col gap-y-3 w-full">
           {inputs.map((input) => (
             <Input
               key={input.id}
@@ -64,35 +77,17 @@ const Login = () => {
             />
           ))}
         </div>
-<<<<<<< HEAD
-        <div className="flex flex-col w-full gap-y-2">
-          <button className="btn-primary w-full">Login</button>{" "}
-          <button className="btn-primary !bg-secondary text-white w-full">
-            Github ile giriş
-          </button>
-        </div>
-      </div>
-=======
         <div className="flex flex-col w-full gap-y-3 mt-6">
-          <button className="btn-primary">LOGIN</button>
-          <button className="btn-primary !bg-secondary">
-            <i className="fa fa-github mr-2 text-lg"></i>
-            GITHUB
-          </button>
-          <Link href="/auth/register">
+          <button className="btn-primary">REGISTER</button>
+          <Link href="/auth/login">
             <span className="text-sm underline cursor-pointer text-secondary">
-              Do you no have a account?
+              Do you have a account?
             </span>
           </Link>
         </div>
       </form>
->>>>>>> 0ff70e59a01c050b325d8fda09f9cf17875c2d5b
     </div>
   );
 };
 
-<<<<<<< HEAD
-export default Login;
-=======
-export default Login;
->>>>>>> 0ff70e59a01c050b325d8fda09f9cf17875c2d5b
+export default Register;
