@@ -55,8 +55,8 @@ const Customers = () => {
       <Slider {...settings}>
         <CustomerItem imgSrc="/images/client1.jpg" />
         <CustomerItem imgSrc="/images/client2.jpg" />
-        <CustomerItem imgSrc="/images/client1.jpg" />
-        <CustomerItem imgSrc="/images/client2.jpg" />
+        <CustomerItem imgSrc="/images/client3.jpg" />
+        <CustomerItem imgSrc="/images/client4.jpg" />
       </Slider>
     </div>
   );

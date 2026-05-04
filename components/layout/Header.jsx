@@ -32,12 +32,12 @@ const Header = () => {
               <Link href={"/"}>Home</Link>
             </li>
             <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
-              <Link href={"#menu"}>Menu</Link>
+              <Link href={"/menu"}>Menu</Link>
             </li>
             <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
               <Link href={"/about"}>About</Link>{" "}
             </li>
-            <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
+            <li className="px-[5px] py-[10px] uppercase hover:text-primary ">
               <Link href={"/reservation"}>Reservation</Link>
             </li>
           </ul>
@@ -51,16 +51,16 @@ const Header = () => {
           )}
         </nav>
         <div className="flex gap-x-4 items-center">
-          <a href="#">
-            <FaUserAlt className="hover:text-primary transition-all" />
-          </a>
-          <a href="#">
-            <FaShoppingCart className="hover:text-primary transition-all" />
+          <Link href="/auth/login">
+            <FaUserAlt className="hover:text-primary transition-all cursor-pointer" />
+          </Link>
+          <a href="/cart">
+            <FaShoppingCart className="hover:text-primary transition-all cursor-pointer" />
           </a>
           <button onClick={() => setIsSearchModal(true)}>
-            <FaSearch className="hover:text-primary transition-all" />
+            <FaSearch className="hover:text-primary transition-all cursor-pointer" />
           </button>
-          <a href="#" className="md:inline-block hidden sm">
+          <a href="#" className="md:inline-block hidden sm cursor-pointer">
             <button className="btn-primary">Order Online</button>
           </a>
           <button

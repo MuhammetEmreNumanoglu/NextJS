@@ -54,7 +54,7 @@ const Footer = () => {
                 <FaTwitter />
               </a>
               <a
-                href=""
+                href="https://www.linkedin.com/in/muhammet-emre-numanoğlu-6017b3220/"
                 className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full"
               >
                 <FaLinkedin />
