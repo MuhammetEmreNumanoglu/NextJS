@@ -47,8 +47,8 @@ const Cart = () => {
 
           <div className="mt-6">
             <b>Subtotal: </b>$20 <br />
-            <b className=" inline-block my-1">Discount: </b>$0.00 <br />
-            <b>Total: </b>$20
+            <b className=" inline-block my-1">Discount: </b>$5.00 <br />
+            <b>Total: </b>$15
           </div>
 
           <div>
