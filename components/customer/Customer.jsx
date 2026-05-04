@@ -4,28 +4,29 @@ import CustomerItem from "./CustomerItem";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-const Customers = () => {
-  function NextBtn({ onClick }) {
-    return (
-      <button
-        className="absolute -bottom-12 left-1/2 bg-primary flex items-center justify-center w-10 h-10 rounded-full text-white"
-        onClick={onClick}
-      >
-        <IoIosArrowForward />
-      </button>
-    );
-  }
+function NextBtn({ onClick }) {
+  return (
+    <button
+      className="absolute -bottom-12 left-1/2 bg-primary flex items-center justify-center w-10 h-10 rounded-full text-white"
+      onClick={onClick}
+    >
+      <IoIosArrowForward />
+    </button>
+  );
+}
 
-  function PrevBtn({ onClick }) {
-    return (
-      <button
-        className="absolute -bottom-12 right-1/2 bg-primary flex items-center justify-center w-10 h-10 rounded-full text-white mr-2"
-        onClick={onClick}
-      >
-        <IoIosArrowBack />
-      </button>
-    );
-  }
+function PrevBtn({ onClick }) {
+  return (
+    <button
+      className="absolute -bottom-12 right-1/2 bg-primary flex items-center justify-center w-10 h-10 rounded-full text-white mr-2"
+      onClick={onClick}
+    >
+      <IoIosArrowBack />
+    </button>
+  );
+}
+
+const Customers = () => {
 
   const settings = {
     dots: false,

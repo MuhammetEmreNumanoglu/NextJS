@@ -41,12 +41,6 @@ const Login = () => {
   ];
 
   return (
-<<<<<<< HEAD
-    <div className="container mx-auto  ">
-      <div className="flex flex-col items-center my-20 w-1/2 mx-auto ">
-        <Title className="mb-4">Login</Title>
-        <div className="flex flex-col gap-y-3 w-full">
-=======
     <div className="container mx-auto">
       <form
         className="flex flex-col items-center my-20 md:w-1/2 w-full mx-auto"
@@ -54,7 +48,6 @@ const Login = () => {
       >
         <Title addClass="text-[40px] mb-6">Login</Title>
         <div className="flex flex-col gap-y-2 w-full">
->>>>>>> 0ff70e59a01c050b325d8fda09f9cf17875c2d5b
           {inputs.map((input) => (
             <Input
               key={input.id}
@@ -64,15 +57,6 @@ const Login = () => {
             />
           ))}
         </div>
-<<<<<<< HEAD
-        <div className="flex flex-col w-full gap-y-2">
-          <button className="btn-primary w-full">Login</button>{" "}
-          <button className="btn-primary !bg-secondary text-white w-full">
-            Github ile giriş
-          </button>
-        </div>
-      </div>
-=======
         <div className="flex flex-col w-full gap-y-3 mt-6">
           <button className="btn-primary">LOGIN</button>
           <button className="btn-primary !bg-secondary">
@@ -86,13 +70,8 @@ const Login = () => {
           </Link>
         </div>
       </form>
->>>>>>> 0ff70e59a01c050b325d8fda09f9cf17875c2d5b
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default Login;
-=======
-export default Login;
->>>>>>> 0ff70e59a01c050b325d8fda09f9cf17875c2d5b
