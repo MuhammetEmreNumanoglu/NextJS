@@ -22,9 +22,9 @@ const CustomerItem = ({ imgSrc }) => {
         <Image
           src={imgSrc}
           alt=""
-          layout="fill"
-          objectFit="cover"
-          className="rounded-full"
+          width={112}
+          height={112}
+          className="rounded-full object-cover w-full h-full"
         />
       </div>
     </div>

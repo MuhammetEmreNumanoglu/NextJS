@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Header from "../components/layout/Header";
-import Home from "./home";
+import Home from "./home/index";
 import Input from "@/components/form/Input";
 
 export default function Index() {
