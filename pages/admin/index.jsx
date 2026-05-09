@@ -4,7 +4,7 @@ import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
 import { adminSchema } from "../../schema/admin";
 
-const Login = () => {
+const Index = () => {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
@@ -70,4 +70,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Index;
