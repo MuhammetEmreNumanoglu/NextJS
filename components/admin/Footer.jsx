@@ -5,15 +5,20 @@ import { useFormik } from "formik";
 import { footerSchema } from "../../schema/footer";
 
 const Footer = () => {
-  const [linkAddress, setLinkAddress] = useState("");
-  const [iconName, setIconName] = useState("");
+  const [linkAddress, setLinkAddress] = useState("https://");
+  const [iconName, setIconName] = useState("fa fa-facebook");
+
   const [icons, setIcons] = useState([
     "fa fa-facebook",
     "fa fa-twitter",
     "fa fa-instagram",
   ]);
+
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
+
+    console.log(values);
+
     actions.resetForm();
   };
 
@@ -30,6 +35,7 @@ const Footer = () => {
       onSubmit,
       validationSchema: footerSchema,
     });
+
   const inputs = [
     {
       id: 1,
@@ -86,9 +92,14 @@ const Footer = () => {
       touched: touched.time,
     },
   ];
+
   return (
-    <form className="lg:p-8 flex-1 lg:mt-0 mt-5">
-      <Title addClass="text-[40px]">Footer Settings</Title>
+    <form
+      onSubmit={handleSubmit}
+      className="lg:p-8 flex-1 lg:mt-0 mt-5"
+    >
+      <Title>Footer Settings</Title>
+
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4">
         {inputs.map((input) => (
           <Input
@@ -99,19 +110,27 @@ const Footer = () => {
           />
         ))}
       </div>
+
       <div className="mt-4 flex justify-between md:items-center md:flex-row flex-col gap-4">
         <div className="flex items-center gap-4">
-          <Input placeholder="Link Address" value="https://" onChange="" />
+          <Input
+            placeholder="Link Address"
+            value={linkAddress}
+            onChange={(e) => setLinkAddress(e.target.value)}
+          />
+
           <Input
             placeholder="Icon Name"
-            defaulValue="fa fa-"
-            onChange={(e) => setIconName(e.target.value)}
             value={iconName}
+            onChange={(e) => setIconName(e.target.value)}
           />
+
           <button
             className="btn-primary"
             type="button"
             onClick={() => {
+              if (!iconName.trim()) return;
+
               setIcons([...icons, iconName]);
               setIconName("fa fa-");
             }}
@@ -119,24 +138,36 @@ const Footer = () => {
             Add
           </button>
         </div>
-        <ul className="flex items-center gap-6">
+
+        <ul className="flex items-center gap-6 flex-wrap">
           {icons.map((icon, index) => (
-            <li key={index} className="flex items-center">
-              <i className={`${icon} text-2xl`}></i>
+            <li
+              key={index}
+              className="flex items-center"
+            >
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <i className={`${icon} text-2xl text-black`}></i>
+              </div>
+
               <button
                 className="text-danger"
                 onClick={() => {
-                  setIcons((prev) => prev.filter((item, i) => i !== index));
+                  setIcons((prev) =>
+                    prev.filter((item, i) => i !== index)
+                  );
                 }}
                 type="button"
               >
-                <i className="fa fa-trash text-xl ml-2"></i>
+                <i className="fa fa-trash text-xl"></i>
               </button>
             </li>
           ))}
         </ul>
       </div>
-      <button className="btn-primary mt-4">Update</button>
+
+      <button type="submit" className="btn-primary mt-4">
+        Update
+      </button>
     </form>
   );
 };
