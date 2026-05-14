@@ -3,11 +3,25 @@ import Link from "next/link";
 import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
 import { adminSchema } from "../../schema/admin";
-
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 const Index = () => {
+  const { push } = useRouter();
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
-    actions.resetForm();
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/admin`,
+        values,
+      );
+      if (res.status === 200) {
+        actions.resetForm();
+        toast.success("Admin Login Succesfully");
+        push("/admin/profile");
+      } else {
+        toast.error("Credentials Error");
+      }
+    } catch (error) {}
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
@@ -69,5 +83,7 @@ const Index = () => {
     </div>
   );
 };
-
+export const getServerSideProps = (ctx) => {
+  const myCookie = ctx.req.cookies || " ";
+};
 export default Index;
