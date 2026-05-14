@@ -4,15 +4,25 @@ import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
 import { registerSchema } from "../../schema/register";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  const notify = () => toast.success("Wow so easy!", { theme: "dark" });
+
   const onSubmit = async (values, actions) => {
     try {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
         values,
       );
+      if (res.status === 200) {
+        toast.success("User created successfully ");
+        console.log("toast fired");
+      }
+ 
     } catch (err) {
+              toast.error("Something went wrong")
+
       console.log(err.response?.data || err.message);
     }
     actions.resetForm();
