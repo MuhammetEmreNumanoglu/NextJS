@@ -6,12 +6,16 @@ import { loginSchema } from "../../schema/login";
 import { useSession, signIn } from "next-auth/react";
 
 const Login = () => {
-  const {data:session} = useSession();
-  console.log(session)
+  const { data: session } = useSession();
+
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
-    actions.resetForm();
+    const { email, password } = values;
+    let options = { redirect: false, email, password };
+    const res = await signIn("credentials", options);
+    /*   actions.resetForm(); */
   };
+
+  console.log(session);
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
       initialValues: {
@@ -50,7 +54,7 @@ const Login = () => {
         onSubmit={handleSubmit}
       >
         <Title addClass="text-[40px] mb-6">Login</Title>
-        <div className="flex flex-col gap-y-2 w-full">
+        <div className="flex flex-col gap-y-3 w-full">
           {inputs.map((input) => (
             <Input
               key={input.id}
@@ -64,7 +68,11 @@ const Login = () => {
           <button className="btn-primary" type="submit">
             LOGIN
           </button>
-          <button className="btn-primary !bg-secondary" type="button" onClick={()=>signIn("github")}>
+          <button
+            className="btn-primary !bg-secondary"
+            type="button"
+            onClick={() => signIn("github")}
+          >
             <i className="fa fa-github mr-2 text-lg"></i>
             GITHUB
           </button>

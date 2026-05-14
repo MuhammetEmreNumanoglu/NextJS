@@ -19,9 +19,8 @@ const Register = () => {
         toast.success("User created successfully ");
         console.log("toast fired");
       }
- 
     } catch (err) {
-              toast.error("Something went wrong")
+      toast.error(err.response.data.message);
 
       console.log(err.response?.data || err.message);
     }
