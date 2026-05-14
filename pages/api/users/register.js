@@ -16,9 +16,10 @@ const handler = async (req, res) => {
     newUser.password = await bcrypt.hash(newUser.password, salt);
     newUser.confirmPassword = await bcrypt.hash(newUser.password, salt);
     await newUser.save();
-    res.status(200).json(newUser)
+    res.status(200).json(newUser);
   } catch (err) {
     console.log(err);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
