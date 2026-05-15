@@ -11,7 +11,7 @@ export default NextAuth({
       name: "Credentials",
 
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
@@ -37,7 +37,7 @@ export default NextAuth({
     }),
   ],
   pages: {
-    signIn: "auth/login",
+    signIn: "/auth/login",
   },
   database: process.env.MONGODB_URI,
   secret: process.env.NEXTAUTH_SECRET,

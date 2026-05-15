@@ -1,4 +1,5 @@
 import cookie from "cookie";
+
 const handler = (req, res) => {
   const { method } = req;
 
@@ -14,13 +15,24 @@ const handler = (req, res) => {
           maxAge: 60 * 60,
           sameSite: "strict",
           path: "/",
-        }),
+          httpOnly:true,
+        })
       );
-      res.status(200).json({ message: "Successfull" });
+      res.status(200).json({ message: "Success" });
+    } else {
+      res.status(400).json({ message: "Wrong Credentials" });
     }
-    else{
-        res.status(400).json({message:"Wrong Credentials"})
-    }
+  }
+
+  if (method === "PUT") {
+    res.setHeader(
+      "Set-Cookie",
+      cookie.serialize("token", process.env.ADMIN_TOKEN, {
+        maxAge: -1,
+        path: "/",
+      })
+    );
+    res.status(200).json({ message: "Success" });
   }
 };
 

@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     phoneNumber: {
       type: String,
@@ -23,12 +24,8 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    confirmPassword: {
-      type: String,
-      required: true,
-    },
     emailVerified: {
-      type: String,
+      type: Boolean,
       default: null,
     },
     githubId: String,
