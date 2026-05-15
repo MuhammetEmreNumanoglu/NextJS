@@ -4,16 +4,24 @@ import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
 import { loginSchema } from "../../schema/login";
 import { useSession, signIn } from "next-auth/react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
   const { data: session } = useSession();
 
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
     let options = { redirect: false, email, password };
     const res = await signIn("credentials", options);
-    /*   actions.resetForm(); */
+    actions.resetForm();
   };
+  useEffect(() => {
+    if (session) {
+      router.push("/profile");
+    }
+  }, [session, router.push]);
 
   console.log(session);
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
