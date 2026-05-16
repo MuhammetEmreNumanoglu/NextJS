@@ -42,21 +42,15 @@ export default NextAuth({
   database: process.env.MONGODB_URI,
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async signIn({ user }) {
-      try {
-        await dbConnect();
+  async signIn({ user, account }) {
+    try {
+      await dbConnect();
 
-        console.log("SIGNIN USER:", user);
-
+      if (account.provider === "github") {
         const githubId = user?.id;
         const email = user?.email;
 
-        if (!githubId) {
-          console.log("GitHub ID missing");
-          return false;
-        }
-
-        await User.findOneAndUpdate(
+        const existingUser = await User.findOneAndUpdate(
           { githubId: githubId },
           {
             name: user.name,
@@ -70,17 +64,49 @@ export default NextAuth({
           },
         );
 
-        return true;
-      } catch (err) {
-        console.log("SIGNIN DB ERROR:", err);
-        return false;
+        user.id = existingUser._id.toString();
       }
-    },
 
-    async session({ session, token }) {
-      return session;
-    },
+      return true;
+    } catch (err) {
+      console.log("SIGNIN DB ERROR:", err);
+      return false;
+    }
   },
+
+  async jwt({ token, user, account }) {
+    await dbConnect();
+
+    // Login anında çalışır
+    if (user) {
+      // Github login
+      if (account?.provider === "github") {
+        const dbUser = await User.findOne({
+          githubId: user.id,
+        });
+
+        if (dbUser) {
+          token.id = dbUser._id.toString();
+        }
+      }
+
+      // Credentials login
+      else {
+        token.id = user.id;
+      }
+    }
+
+    return token;
+  },
+
+  async session({ session, token }) {
+    if (session.user) {
+      session.user.id = token.id;
+    }
+
+    return session;
+  },
+},
 });
 
 const signInUser = async ({ user, password }) => {

@@ -18,7 +18,7 @@ const Index = () => {
       if (res.status === 200) {
         actions.resetForm();
         toast.success("Admin Login Succesfully");
-        push("/admin/profile");
+        push({user});
       } else {
         toast.error("Credentials Error");
       }
