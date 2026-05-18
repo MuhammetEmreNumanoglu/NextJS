@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "../form/Input";
 import Title from "../ui/Title";
 
 const Category = () => {
   const [inputText, setInputText] = useState("");
-  const [categories, setCategories] = useState(["pizza"]);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/categories`,
+        );
+        setCategories(res?.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  }, []);
 
   return (
     <div className="lg:p-8 flex-1 lg:mt-0 mt-5">
