@@ -1,27 +1,28 @@
+import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { useState } from "react";
-import Products from "../../components/admin/Products";
-import Account from "../../components/profile/Account";
+import Category from "../../components/admin/Category";
+import Footer from "../../components/admin/Footer";
 import Order from "../../components/admin/Order";
-import Password from "../../components/profile/Password";
-import Category from "@/components/admin/Category";
-import Footer from "@/components/admin/Footer";
-import axios from "axios";
-import { useRouter } from "next/router";
+import Products from "../../components/admin/Products";
 import { toast } from "react-toastify";
+import AddProduct from "../../components/admin/AddProduct";
+
 const Profile = () => {
-  const { push } = useRouter();
   const [tabs, setTabs] = useState(0);
+  const [isProductModal, setIsProductModal] = useState(false);
+
+  const { push } = useRouter();
+
   const closeAdminAccount = async () => {
     try {
-      if (confirm("Are you sure you want to close your admin account? ")) {
+      if (confirm("Are you sure you want to close your Admin Account?")) {
         const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`);
         if (res.status === 200) {
           push("/admin");
-          toast.success("Admin logout is succesfully");
-        } else {
-          toast.error("Something is wrong");
+          toast.success("Admin Account Closed!");
         }
       }
     } catch (err) {
@@ -80,10 +81,10 @@ const Profile = () => {
             <button className="ml-1">Footer</button>
           </li>
           <li
-            onClick={closeAdminAccount}
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 4 && "bg-primary text-white"
             }`}
+            onClick={closeAdminAccount}
           >
             <i className="fa fa-sign-out"></i>
             <button className="ml-1">Exit</button>
@@ -94,12 +95,19 @@ const Profile = () => {
       {tabs === 1 && <Order />}
       {tabs === 2 && <Category />}
       {tabs === 3 && <Footer />}
+      {isProductModal && <AddProduct setIsProductModal={setIsProductModal} />}
+      <button
+        className="btn-primary !w-12 !h-12 !p-0 absolute bottom-14 right-10 text-4xl"
+        onClick={() => setIsProductModal(true)}
+      >
+        +
+      </button>
     </div>
   );
 };
-export const getServerSideProps = (ctx) => {
-  const myCookie = ctx.req.cookies || {};
 
+export const getServerSideProps = (ctx) => {
+  const myCookie = ctx.req?.cookies || "";
   if (myCookie.token !== process.env.ADMIN_TOKEN) {
     return {
       redirect: {
@@ -113,4 +121,5 @@ export const getServerSideProps = (ctx) => {
     props: {},
   };
 };
+
 export default Profile;
