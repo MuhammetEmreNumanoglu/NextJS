@@ -2,24 +2,37 @@ import React, { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import Title from "../ui/Title";
 import { GiCancel } from "react-icons/gi";
+import axios from "axios";
 
 const AddProduct = ({ setIsProductModal }) => {
   const [file, setFile] = useState();
   const [imageSrc, setImageSrc] = useState();
 
-const handleOnChange = (changeEvent) => {
-  const file = changeEvent.target.files?.[0];
+  const handleOnChange = (changeEvent) => {
+    const reader = new FileReader();
 
-  if (!file) return;
+    reader.onload = function (onLoadEvent) {
+      setImageSrc(onLoadEvent.target.result);
+      setFile(changeEvent.target.files[0]);
+    };
 
-  const reader = new FileReader();
-
-  reader.onload = (event) => {
-    setImageSrc(event.target.result);
+    reader.readAsDataURL(changeEvent.target.files[0]);
   };
 
-  reader.readAsDataURL(file);
-};
+  const handleCreate = async () => {
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "food-ordering");
+
+    try {
+      const uploadRes = await axios.post(
+        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY}/image/upload`,
+        data,
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-60 grid place-content-center">
@@ -121,7 +134,12 @@ const handleOnChange = (changeEvent) => {
               </div>
             </div>
             <div className="flex justify-end">
-              <button className="btn-primary !bg-success ">Create</button>
+              <button
+                className="btn-primary !bg-success"
+                onClick={handleCreate}
+              >
+                Create
+              </button>
             </div>
             <button
               className="absolute  top-4 right-4"
