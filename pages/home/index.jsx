@@ -1,22 +1,20 @@
-import About from "@/components/About";
-import Campaign from "@/components/Campaign";
-import Carousel from "@/components/Carousel";
-import Customer from "@/components/customer/Customer";
-import Footer from "@/components/layout/Footer";
-import MenuWrapper from "@/components/product/MenuWrapper";
-import Reservation from "@/components/Reservation";
 import React from "react";
+import About from "../../components/About";
+import Campaign from "../../components/Campaign";
+import Carousel from "../../components/Carousel";
+import Customer from "../../components/customer/Customer";
+import MenuWrapper from "../../components/product/MenuWrapper";
+import Reservation from "../../components/Reservation";
 
-const Index = ({categoryList}) => {
-  console.log(categoryList)
+const Index = ({ categoryList, productList }) => {
   return (
     <React.Fragment>
-      <Carousel></Carousel>
-      <Campaign></Campaign>
-      <MenuWrapper categoryList={categoryList}></MenuWrapper>
-      <About></About>
-      <Reservation></Reservation>
-      <Customer></Customer>
+      <Carousel />
+      <Campaign />
+      <MenuWrapper categoryList={categoryList} productList={productList} />
+      <About />
+      <Reservation />
+      <Customer />
     </React.Fragment>
   );
 };
