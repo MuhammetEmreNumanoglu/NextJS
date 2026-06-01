@@ -25,8 +25,8 @@ const Profile = () => {
           toast.success("Admin Account Closed!");
         }
       }
-    } catch (err) {
-      console.log(err);
+    } catch {
+      return;
     }
   };
 

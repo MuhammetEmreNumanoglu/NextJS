@@ -13,8 +13,8 @@ const handler = async (req, res) => {
     try {
       const user = await User.findById(id);
       res.status(200).json(user);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      res.status(500).json({ message: "Server error" });
     }
   }
 
@@ -31,8 +31,8 @@ const handler = async (req, res) => {
         new: true,
       });
       res.status(200).json(users);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      res.status(500).json({ message: "Server error" });
     }
   }
 };

@@ -12,8 +12,8 @@ const handler = async (req, res) => {
     try {
       const category = await Category.findById(id);
       res.status(200).json(category);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      res.status(500).json({ message: "Server error" });
     }
   }
 
@@ -21,8 +21,8 @@ const handler = async (req, res) => {
     try {
       const category = await Category.findByIdAndDelete(id);
       res.status(200).json(category);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      res.status(500).json({ message: "Server error" });
     }
   }
 };

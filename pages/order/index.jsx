@@ -20,9 +20,7 @@ const Order = () => {
       persons: "",
       date: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit: () => {},
   });
 
   const inputs = [

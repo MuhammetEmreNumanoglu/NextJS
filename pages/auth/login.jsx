@@ -6,21 +6,20 @@ import { loginSchema } from "../../schema/login";
 import { getSession, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Login = () => {
   const { data: session } = useSession();
   const { push } = useRouter();
-  const [currentUser, setCurrentUser] = useState();
 
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
     let options = { redirect: false, email, password };
     try {
-      const res = await signIn("credentials", options);
+      await signIn("credentials", options);
       actions.resetForm();
-    } catch (err) {
-      console.log(err);
+    } catch {
+      return;
     }
   };
 
@@ -28,16 +27,19 @@ const Login = () => {
     const getUser = async () => {
       try {
         const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
-        setCurrentUser(
-          res.data?.find((user) => user.email === session?.user?.email)
+        const user = res.data?.find(
+          (user) => user.email === session?.user?.email
         );
-        session && push("/profile/" + currentUser?._id);
-      } catch (err) {
-        console.log(err);
+
+        if (session && user?._id) {
+          push("/profile/" + user._id);
+        }
+      } catch {
+        return;
       }
     };
     getUser();
-  }, [session, push, currentUser]);
+  }, [session, push]);
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({

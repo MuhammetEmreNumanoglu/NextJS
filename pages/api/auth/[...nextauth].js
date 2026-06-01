@@ -68,8 +68,7 @@ export default NextAuth({
       }
 
       return true;
-    } catch (err) {
-      console.log("SIGNIN DB ERROR:", err);
+    } catch {
       return false;
     }
   },

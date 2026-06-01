@@ -8,12 +8,12 @@ import axios from "axios";
 const Account = ({ user }) => {
   const onSubmit = async (values, actions) => {
     try {
-      const res = await axios.put(
+      await axios.put(
         `${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`,
         values
       );
-    } catch (err) {
-      console.log(err);
+    } catch {
+      return;
     }
     actions.resetForm();
   };

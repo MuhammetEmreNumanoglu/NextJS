@@ -17,8 +17,6 @@ const Footer = () => {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
 
-    console.log(values);
-
     actions.resetForm();
   };
 

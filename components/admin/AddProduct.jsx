@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import OutsideClickHandler from "react-outside-click-handler";
 import Title from "../ui/Title";
 import { GiCancel } from "react-icons/gi";
@@ -31,8 +32,8 @@ const AddProduct = ({ setIsProductModal }) => {
         );
 
         setCategories(res.data);
-      } catch (err) {
-        console.log(err);
+      } catch {
+        return;
       }
     };
 
@@ -113,8 +114,7 @@ const AddProduct = ({ setIsProductModal }) => {
         toast.success("Product created successfully!");
         setIsProductModal(false);
       }
-    } catch (err) {
-      console.log(err);
+    } catch {
       toast.error("Something went wrong");
     }
   };
@@ -142,9 +142,12 @@ const AddProduct = ({ setIsProductModal }) => {
                 </button>
 
                 {imageSrc && (
-                  <img
+                  <Image
                     src={imageSrc}
                     alt="preview"
+                    width={48}
+                    height={48}
+                    unoptimized
                     className="w-12 h-12 rounded-full object-cover"
                   />
                 )}

@@ -14,8 +14,8 @@ const Category = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/categories`
         );
         setCategories(res?.data);
-      } catch (err) {
-        console.log(err);
+      } catch {
+        return;
       }
     };
     getCategories();
@@ -29,8 +29,8 @@ const Category = () => {
       );
       setCategories([...categories, res.data]);
       setInputText("");
-    } catch (err) {
-      console.log(err);
+    } catch {
+      return;
     }
   };
 
@@ -43,8 +43,8 @@ const Category = () => {
         );
         setCategories(categories.filter((cat) => cat._id !== id));
       }
-    } catch (err) {
-      console.log(err);
+    } catch {
+      return;
     }
   };
 

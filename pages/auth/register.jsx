@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 const Register = () => {
   const notify = () => toast.success("Wow so easy!", { theme: "dark" });
-  const {push} = useRouter();
+  const { push } = useRouter();
   const onSubmit = async (values, actions) => {
     try {
       const res = await axios.post(
@@ -18,12 +18,10 @@ const Register = () => {
       );
       if (res.status === 200) {
         toast.success("User created successfully ");
-        push("/auth/login")
+        push("/auth/login");
       }
     } catch (err) {
-      toast.error(err.response.data.message);
-
-      console.log(err.response?.data || err.message);
+      toast.error(err.response?.data?.message || "Something went wrong");
     }
     actions.resetForm();
   };

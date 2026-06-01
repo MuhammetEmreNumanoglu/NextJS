@@ -9,8 +9,8 @@ const handler = async (req, res) => {
     try {
       const products = await Product.find();
       res.status(200).json(products);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      res.status(500).json({ message: "Server error" });
     }
   }
 
@@ -18,8 +18,8 @@ const handler = async (req, res) => {
     try {
       const newProduct = await Product.create(req.body);
       res.status(201).json(newProduct);
-    } catch (err) {
-      console.log(err);
+    } catch {
+      res.status(500).json({ message: "Server error" });
     }
   }
 };
