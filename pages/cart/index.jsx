@@ -40,7 +40,7 @@ const Cart = () => {
                       width={50}
                       height={50}
                     />
-                    <span>{product.name}</span>
+                    <span>{product.text}</span>
                   </td>
                   <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
                     {product.extras.map((item) => (

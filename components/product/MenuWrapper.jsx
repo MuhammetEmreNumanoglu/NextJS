@@ -1,19 +1,17 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Title from "../ui/Title";
 import MenuItem from "./MenuItem";
 
 const MenuWrapper = ({ categoryList, productList }) => {
   const [active, setActive] = useState(0);
+  const [filter, setFilter] = useState([]);
 
-  const filter = useMemo(() => {
-    const selectedCategory = categoryList?.[active]?.title?.toLowerCase();
-
-    if (!selectedCategory) {
-      return [];
-    }
-
-    return (productList || []).filter(
-      (product) => product.category === selectedCategory
+  useEffect(() => {
+    setFilter(
+      productList.filter(
+        (product) =>
+          product.category === categoryList[active].title.toLowerCase(),
+      ),
     );
   }, [categoryList, productList, active]);
 
