@@ -1,36 +1,284 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# NEXT.JS / REACT / NODE.JS ULTIMATE .GITIGNORE
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
 
-# testing
-/coverage
+# Package Managers
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.npm/
+.pnpm-store/
+.pnpm-debug.log*
+.npmrc.local
 
-# next.js
-/.next/
-/out/
+# Build
+.next/
+out/
+dist/
+build/
+release/
+debug/
+target/
+lib/
+.cache/
+.tmp/
+temp/
+tmp/
 
-# production
-/build
+# Turborepo / Monorepo
+.turbo/
+turbo/
 
-# misc
-.DS_Store
-*.pem
+# Cache
+.cache-loader/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rollup.cache/
+.vite/
+vite.svg
 
-# debug
+# Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# local env files
-.env*.local
+# Coverage
+coverage/
+.nyc_output/
+
+# Environment Variables
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging.local
+.env.development
+.env.production
+.env.test
+.env.staging
+.env.*
+!.env.example
+!.env.sample
 
-# vercel
-.vercel
+# Secret Keys
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.kdb
+*.asc
+*.gpg
+*.secret
 
-# typescript
+# Docker
+.docker/
+docker-data/
+docker-volumes/
+docker-compose.override.yml
+docker-compose.local.yml
+docker-compose.dev.yml
+docker-compose.debug.yml
+docker-compose.*.local.yml
+*.pid
+
+# Kubernetes
+.kube/
+*.kubeconfig
+
+# Vercel
+.vercel/
+
+# Netlify
+.netlify/
+
+# Firebase
+.firebase/
+firebase-debug.log
+
+# AWS
+.aws/
+.aws-sam/
+
+# Azure
+.azure/
+
+# Google Cloud
+.gcloud/
+
+# Serverless
+.serverless/
+
+# Prisma
+prisma/*.db
+prisma/*.db-journal
+prisma/dev.db
+
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Mongo
+data/db/
+
+# Redis
+dump.rdb
+appendonly.aof
+
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+.idea/
+*.iml
+
+# JetBrains
+out/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Vim
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.fseventsd
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+
+# Certificates
+*.cer
+*.der
+*.p7b
+*.p7c
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+
+# Runtime
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+playwright-report/
+playwright/.cache/
+test-results/
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Storybook
+storybook-static/
+
+# ESLint
+.eslintcache
+
+# Stylelint
+.stylelintcache
+
+# Babel
+.babel-cache/
+
+# Parcel
+.parcel-cache/
+
+# Webpack
+webpack-stats.json
+
+# Rollup
+.rpt2_cache/
+
+# SASS
+.sass-cache/
+
+# Misc
+*.tgz
+*.gz
+*.zip
+*.rar
+*.7z
+
+# Local Config
+.local/
+.local-cache/
+config.local.js
+config.local.ts
+config.local.json
+
+# Generated Files
+generated/
+.generated/
+
+# API Documentation
+.openapi-generator/
+swagger-ui/
+
+# AI / LLM
+.prompt-cache/
+.llm-cache/
+.embeddings/
+
+# Mac Resource Fork
+._*
+
+# Ignore everything inside uploads
+uploads/
+media/
+
+# Ignore local databases
+database.sqlite
+database.db
+
+# Miscellaneous
+*.lock-wscript
