@@ -1,11 +1,11 @@
 import React from 'react'
 
-const EmployeeId = () => {
+export default async function EmployeeIdPage({params}) {
+    console.log(await params)
+    const {slug} = await params;
   return (
     <div>
-      s
+      {slug} is the id number
     </div>
   )
 }
-
-export default EmployeeId
