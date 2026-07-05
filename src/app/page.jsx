@@ -1,21 +1,12 @@
 import Link from "next/link";
+import Navbar from "./components/navbar";
+
 export default function Home() {
   return (
     <div>
       Home Page
-      <ul>
-        <li>
-          <Link href={"/blog"}>Blog</Link>
-        </li>
-        <li>
-          {" "}
-          <Link href={"/users/employees/1"}>User</Link>
-        </li>
-        <li>
-          {" "}
-          <Link href={"/suv"}>Suv</Link>
-        </li>
-      </ul>
+
+      <Navbar></Navbar>
     </div>
   );
 }
