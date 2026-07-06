@@ -9,13 +9,7 @@ export default async function SuvChildPage({params,searchParams}) {
   return (
     <div>2
       SuvChildPage
-      <ul>
-        <li>
-          <Link href={"/blog"}>Blog</Link>
-        </li>
-        <li></li>
-        <li></li>
-      </ul>
+
     </div> 
   )
 }

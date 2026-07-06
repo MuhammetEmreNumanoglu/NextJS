@@ -1,4 +1,5 @@
 'use client'
+import styles from "./styles.module.css"
 import { useRouter } from "next/navigation"
 export default function BlogPage(){
     const router = useRouter();
@@ -8,8 +9,9 @@ export default function BlogPage(){
     return (
         <>
         <div>
-            <h1>
-                <button onClick={redirectPage}>Home</button>
+            <h1 className={styles.blue}>
+                Blog Page
+                <button  onClick={redirectPage}>Home</button>
                 
             </h1>
         </div>
