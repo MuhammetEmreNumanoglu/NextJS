@@ -14,6 +14,10 @@ export default function Navbar() {
           {" "}
           <Link href={"/suv"}>Suv</Link>
         </li>
+            <li>
+          {" "}
+          <Link href={"/dashboard"}>Dashboard</Link>
+        </li>
       </ul>
     </div>
   );

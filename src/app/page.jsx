@@ -4,7 +4,7 @@ import Navbar from "./components/navbar";
 export default function Home() {
   return (
     <div>
-      Home Page
+      WELCOME TO OUR COURSE
 
       <Navbar></Navbar>
     </div>
